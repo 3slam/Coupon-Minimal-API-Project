@@ -17,6 +17,7 @@ public static class GetCouponByNameEndpoint
         })
         .WithName("GetCouponByName")
         .WithSummary("Get coupon by name")
-        .WithDescription("Retrieves a specific coupon by its name");
+        .WithDescription("Retrieves a specific coupon by its name")
+        .WithTags("Coupons");
     }
 }

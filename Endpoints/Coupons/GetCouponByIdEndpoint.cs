@@ -17,6 +17,7 @@ public static class GetCouponByIdEndpoint
         })
         .WithName("GetCouponById")
         .WithSummary("Get coupon by ID")
-        .WithDescription("Retrieves a specific coupon by its ID");
+        .WithDescription("Retrieves a specific coupon by its ID")
+        .WithTags("Coupons");
     }
 }

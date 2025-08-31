@@ -34,6 +34,7 @@ public static class LoginEndpoint
         .WithName("Login")
         .WithSummary("User login")
         .WithDescription("Authenticates a user and returns a JWT token")
+        .WithTags("User")
         .Produces<APIResponse>(200);
     }
 }

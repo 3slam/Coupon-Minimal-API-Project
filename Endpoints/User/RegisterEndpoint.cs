@@ -34,6 +34,7 @@ public static class RegisterEndpoint
         .WithName("Register")
         .WithSummary("User registration")
         .WithDescription("Creates a new user account")
+        .WithTags("User")
         .Produces<APIResponse>(200);
     }
 }

@@ -21,3 +21,4 @@ public static class EndpointsMapper
         app.MapDeleteCouponEndpoint();
     }
 }
+

@@ -34,6 +34,7 @@ public static class UpdateCouponEndpoint
         .WithName("UpdateCoupon")
         .WithSummary("Update existing coupon")
         .WithDescription("Updates an existing coupon")
+        .WithTags("Coupons")
         .RequireAuthorization("Admin")
         .WithOpenApi(operation => new(operation)
         {

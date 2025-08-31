@@ -34,6 +34,7 @@ public static class CreateCouponEndpoint
         .WithName("CreateCoupon")
         .WithSummary("Create new coupon")
         .WithDescription("Creates a new coupon")
+        .WithTags("Coupons")
         .RequireAuthorization("Admin")
         .WithOpenApi(operation => new(operation)
         {

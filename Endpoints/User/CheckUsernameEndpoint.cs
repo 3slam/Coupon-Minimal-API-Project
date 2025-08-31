@@ -18,6 +18,7 @@ public static class CheckUsernameEndpoint
         .WithName("CheckUsernameAvailability")
         .WithSummary("Check username availability")
         .WithDescription("Checks if a username is available for registration")
+        .WithTags("User")
         .Produces<APIResponse>(200);
     }
 }

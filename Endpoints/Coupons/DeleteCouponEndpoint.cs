@@ -18,6 +18,7 @@ public static class DeleteCouponEndpoint
         .WithName("DeleteCoupon")
         .WithSummary("Delete coupon")
         .WithDescription("Deletes a coupon by its ID")
+        .WithTags("Coupons")
         .RequireAuthorization("Admin");
     }
 }

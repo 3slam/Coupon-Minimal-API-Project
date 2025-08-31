@@ -15,6 +15,7 @@ public static class GetAllCouponsEndpoint
         })
         .WithName("GetAllCoupons")
         .WithSummary("Get all coupons")
-        .WithDescription("Retrieves a list of all available coupons");
+        .WithDescription("Retrieves a list of all available coupons")
+        .WithTags("Coupons");
     }
 }
