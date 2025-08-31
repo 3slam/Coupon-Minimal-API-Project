@@ -6,12 +6,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>Coupon_Minimal_API_Project</RootNamespace>
     <UserSecretsId>395af8b6-bdd6-4a40-b1bc-adc12bf5fc40</UserSecretsId>
-    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <DockerfileContext>.</DockerfileContext>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="15.0.1" />
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="FluentValidation" Version="12.0.0" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.0.0" />
@@ -27,10 +25,6 @@
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.22.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.4" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.14.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Endpoints\" />
   </ItemGroup>
 
 </Project>

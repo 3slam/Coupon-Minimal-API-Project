@@ -7,43 +7,103 @@ namespace Coupon_Minimal_API_Project.Repository;
 public class CouponRepository : ICouponRepository
 {
     private readonly ApplicationDbContext _db;
+    
     public CouponRepository(ApplicationDbContext db)
     {
-        _db = db;
+        _db = db ?? throw new ArgumentNullException(nameof(db));
     }
 
-    public async Task CreateAsync(Coupon coupon)
+    public async Task<bool> CreateAsync(Coupon coupon)
     {
-        _db.Add(coupon);
+        if (coupon == null) return false;
+        
+        try
+        {
+            await _db.Coupons.AddAsync(coupon);
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
     }
 
     public async Task<ICollection<Coupon>> GetAllAsync()
     {
-        return await _db.Coupons.ToListAsync();
+        return await _db.Coupons
+            .AsNoTracking()
+            .ToListAsync();
     }
 
-    public async Task<Coupon> GetAsync(int id)
+    public async Task<Coupon?> GetAsync(int id)
     {
-        return await _db.Coupons.FirstOrDefaultAsync(u => u.Id == id);
+        return await _db.Coupons
+            .AsNoTracking()
+            .FirstOrDefaultAsync(u => u.Id == id);
     }
 
-    public async Task<Coupon> GetAsync(string couponName)
+    public async Task<Coupon?> GetAsync(string couponName)
     {
-        return await _db.Coupons.FirstOrDefaultAsync(u => u.Name.ToLower() == couponName.ToLower());
+        if (string.IsNullOrWhiteSpace(couponName))
+            return null;
+            
+        return await _db.Coupons
+            .AsNoTracking()
+            .FirstOrDefaultAsync(u => u.Name.ToLower() == couponName.ToLower());
     }
 
-    public async Task RemoveAsync(Coupon coupon)
+    public async Task<bool> RemoveAsync(Coupon coupon)
     {
-        _db.Coupons.Remove(coupon);
+        if (coupon == null) return false;
+        
+        try
+        {
+            _db.Coupons.Remove(coupon);
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
     }
 
-    public async Task SaveAsync()
+    public async Task<bool> SaveAsync()
     {
-        await _db.SaveChangesAsync();
+        try
+        {
+            return await _db.SaveChangesAsync() > 0;
+        }
+        catch
+        {
+            return false;
+        }
     }
 
-    public async Task UpdateAsync(Coupon coupon)
+    public async Task<bool> UpdateAsync(Coupon coupon)
     {
-        _db.Coupons.Update(coupon);
+        if (coupon == null) return false;
+        
+        try
+        {
+            _db.Coupons.Update(coupon);
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
+    public async Task<bool> ExistsAsync(int id)
+    {
+        return await _db.Coupons.AnyAsync(c => c.Id == id);
+    }
+
+    public async Task<bool> ExistsAsync(string couponName)
+    {
+        if (string.IsNullOrWhiteSpace(couponName))
+            return false;
+            
+        return await _db.Coupons.AnyAsync(c => c.Name.ToLower() == couponName.ToLower());
     }
 }
