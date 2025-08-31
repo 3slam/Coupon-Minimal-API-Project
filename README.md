@@ -1,5 +1,5 @@
 # Coupon Minimal API Project
-
+<img width="4626" height="2906" alt="Image" src="https://github.com/user-attachments/assets/81ec8503-0827-4ca9-b1ca-6391fd861100" />
 A modern, well-structured .NET 9 Minimal API project for managing coupons with authentication and authorization.
 
 ## 🚀 Features
